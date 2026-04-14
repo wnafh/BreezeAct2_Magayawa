@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class products extends Model
 {
-    //
+    protected $table = 'products';
+    protected $fillabe = [ 'name', 'category', 'price', 'stock'];
 }

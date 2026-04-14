@@ -21,4 +21,19 @@ Route::middleware('auth')->group(function (){
     Route::view('/new-view', 'paymentView')->name('paymentView');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/products', [productController::class, 'addProducts']);
+    Route::get('/products/add', [productController::class, 'addProducts']);
+    Route::post('/products/store', [productController::class, 'store']);
+    Route::get('/products/edit/{id}', [productController::class, 'edit']);
+    Route::put('/products/update/{id}', [productController::class, 'update']);
+    Route::get('/products/delete/{id}', [productController::class, 'destroy']);
+    Route::get('/stocks', [stockController::class, 'index' ]);
+    Route::get('/stocks/add', [stockController::class, 'addStock']);
+    Route::post('/stocks/store', [stockController::class, 'store']);
+    Route::get('/stocks/edit/{id}', [stockController::class, 'edit']);
+    Route::put('/stocks/update/{id}', [stockController::class, 'update']);
+    Route::get('/stocks/delete/{id}', [stockController::class, 'destroy']);
+});
+
 require __DIR__.'/auth.php';
